@@ -27,24 +27,24 @@ vagrant ssh
 ## Ruby, Git, Node, Yarn and Dependencies
 
 ```bash
-sudo apt-get update
+sudo apt update && sudo apt -y upgrade
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt-get update
+sudo apt update && sudo apt -y upgrade
 ```
 
 
 ## Install package dependencies, etc:
 
 ```bash
-sudo apt-get install -y git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev nodejs yarn libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
+sudo apt-get install -y git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev libffi-dev nodejs yarn libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
 ```
 
 ## Install RVM and Ruby 2.7.4
 
 ```bash
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 curl -sSL https://get.rvm.io | bash -s stable
 source ~/.rvm/scripts/rvm
 rvm install 2.7.4
@@ -86,7 +86,7 @@ rails -v
 gem install bundler
 ```
 
-## Setting up Postgresql 9.5
+## Setting up PostgreSQL (LTS)
 
 ```bash
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
@@ -100,7 +100,7 @@ ps aux | grep postgres
 
 ```bash
 sudo su - postgres
-vi /etc/postgresql/9.5/main/pg_hba.conf
+nano /etc/postgresql/12/main/pg_hba.conf
 # search for peer, change "local all postgres peer" to "local all postgres md5" or on local vagrant "local all all trust"
 
 createuser vagrant -s --pwprompt
