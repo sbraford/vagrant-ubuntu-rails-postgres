@@ -53,6 +53,15 @@ ruby -v
 echo "gem: --no-document" > ~/.gemrc
 ```
 
+## Install NodeJS
+
+```bash
+cd ~
+curl -sL https://deb.nodesource.com/setup_20.x -o nodesource_setup.sh
+sudo bash nodesource_setup.sh
+sudo apt install nodejs
+node -v
+```
 ## Configure Git
 
 ```bash
@@ -118,6 +127,13 @@ sudo service postgresql restart
 ```bash
 sudo -u postgres psql
 postgres=# ALTER USER vagrant CREATEDB LOGIN;
+postgres=# \q
+```
+
+### Create a New Rails App
+
+```bash
+rails new -d postgreql myapp
 ```
 
 ## Ready to Rock n Roll
