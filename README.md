@@ -1,4 +1,4 @@
-# Guide to Setup a Vagrant Environment for Ubuntu 20.04, Rails 6 and PostgreSQL
+# Guide to Setup a Vagrant Environment for Ubuntu 22.04, Rails 7 and PostgreSQL
 
 Feel free to clone this repository, use it or fork it.
 
@@ -8,7 +8,7 @@ This guide can be used in lieu of a "vagrant init" as it has no puppet dependenc
 
 Hat tip to this helpful guide:
 
-https://gorails.com/setup/ubuntu/20.04
+https://gorails.com/setup/ubuntu/22.04
 
 ## Git Checkout this repo -- the Vagrantfile and README
 
@@ -41,14 +41,14 @@ sudo apt update && sudo apt -y upgrade
 sudo apt-get install -y git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev libffi-dev nodejs yarn libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
 ```
 
-## Install RVM and Ruby 2.7.4
+## Install RVM and Ruby 3.2.3
 
 ```bash
 gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 curl -sSL https://get.rvm.io | bash -s stable
 source ~/.rvm/scripts/rvm
-rvm install 2.7.4
-rvm use 2.7.4 --default
+rvm install 3.2.3
+rvm use 3.2.3 --default
 ruby -v
 echo "gem: --no-document" > ~/.gemrc
 ```
@@ -81,7 +81,7 @@ If you see, *"Hi your-github-username! You've successfully authenticated, but Gi
 ## Install Rails and Bundler
 
 ```bash
-gem install rails -v 6.1.4
+gem install rails -v 7.1.3
 rails -v
 gem install bundler
 ```
